@@ -25,3 +25,17 @@ export const CATEGORIES = [
         imageUrl: 'https://i.ibb.co/R70vBrQ/men.png',
     },
 ];
+export const DEFAULT_SIGNUP_FORM_FIELDS = {
+    displayName: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+};
+export const BUTTON_TYPE_CLASSES = {
+    google: 'google-sign-in',
+    inverted: 'inverted',
+};
+export const DEFAULT_SIGNIN_FORM_FIELDS = {
+    email: '',
+    password: '',
+};

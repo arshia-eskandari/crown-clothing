@@ -105,4 +105,5 @@ class App extends Component {
 // e.g.
 <Link className="nav-link" to="/shop"></Link>;
 
-
+// IMP turn the keys into quationless text
+setFormFields({ ...formFields, [nameOfField]: value });
