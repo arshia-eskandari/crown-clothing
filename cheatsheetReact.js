@@ -94,3 +94,15 @@ class App extends Component {
     className="background-image"
     style={{ backgroundImage: `url(${imageUrl})` }}
 />;
+
+// IMP IMP IMP IMP IMP IMP IMP IMP IMP
+// You need a Parental element in order to use <Outlet />
+// <Outlet /> allows us to dynamically change portions
+// of our code based on the routes and nested routes
+// IMP IMP IMP IMP IMP IMP IMP IMP IMP
+
+// IMP use the Link tag from react to navigate through the webpages
+// e.g.
+<Link className="nav-link" to="/shop"></Link>;
+
+
