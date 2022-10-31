@@ -107,3 +107,11 @@ class App extends Component {
 
 // IMP turn the keys into quationless text
 setFormFields({ ...formFields, [nameOfField]: value });
+
+// IMP IMP IMP IMP IMP IMP
+// what useContext does is to tell any component to render once a
+// value in the useContext changes
+
+// the components that are listening to a useContext rerender when
+// the value in the useContext changes even if they do not use the
+// the value.

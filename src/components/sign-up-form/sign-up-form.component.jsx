@@ -77,7 +77,7 @@ const SignUpForm = () => {
                     label="Confirm Password"
                     value={confirmPassword}
                     name="confirmPassword"
-                    type="confirmPassword"
+                    type="password"
                     onChange={handleChange}
                     required
                 />

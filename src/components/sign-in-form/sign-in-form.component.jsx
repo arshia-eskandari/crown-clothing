@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { DEFAULT_SIGNIN_FORM_FIELDS } from '../../config';
 import {
     signInWithGooglePopup,
-    createUserDocumentFromAuth,
     signInAuthUserWithEmailAndPassword,
 } from '../../utils/firebase/firbase.utils';
 import FormInput from '../form-input/form-input.component';
@@ -21,11 +20,7 @@ const SignInForm = () => {
         event.preventDefault();
 
         try {
-            const response = await signInAuthUserWithEmailAndPassword(
-                email,
-                password
-            );
-            console.log(response);
+            await signInAuthUserWithEmailAndPassword(email, password);
             resetFormFields();
         } catch (err) {
             if (err.code === 'auth/wrong-password') {
@@ -46,8 +41,7 @@ const SignInForm = () => {
     };
 
     const signInWithGoogle = async () => {
-        const { user } = await signInWithGooglePopup();
-        await createUserDocumentFromAuth(user);
+        await signInWithGooglePopup();
     };
 
     return (
