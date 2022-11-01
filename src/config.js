@@ -39,3 +39,4 @@ export const DEFAULT_SIGNIN_FORM_FIELDS = {
     email: '',
     password: '',
 };
+export const ONE = 1;
