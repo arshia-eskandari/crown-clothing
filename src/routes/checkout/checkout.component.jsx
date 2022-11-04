@@ -1,37 +1,41 @@
-import './checkout.styles.scss';
+import {
+    CheckoutContainer,
+    CheckoutHeader,
+    HeaderBlock,
+    Total,
+} from './checkout.styles';
 import { useContext } from 'react';
 import { CartContext } from '../../contexts/cart.context';
 import CheckoutItem from '../../components/checkout-item/checkout-item.component';
 
 const CheckOut = () => {
-    const { cartItems, total } =
-        useContext(CartContext);
+    const { cartItems, total } = useContext(CartContext);
 
     return (
-        <div className="checkout-container">
-            <h1>I am the checkout page</h1>
-            <div className="checkout-header">
-                <div className="header-block">
+        <CheckoutContainer>
+            <h1>CHECKOUT</h1>
+            <CheckoutHeader>
+                <HeaderBlock>
                     <span>Product</span>
-                </div>
-                <div className="header-block">
+                </HeaderBlock>
+                <HeaderBlock>
                     <span>Description</span>
-                </div>
-                <div className="header-block">
+                </HeaderBlock>
+                <HeaderBlock>
                     <span>Quantity</span>
-                </div>
-                <div className="header-block">
+                </HeaderBlock>
+                <HeaderBlock>
                     <span>Price</span>
-                </div>
-                <div className="header-block">
+                </HeaderBlock>
+                <HeaderBlock>
                     <span>Remove</span>
-                </div>
-            </div>
+                </HeaderBlock>
+            </CheckoutHeader>
             {cartItems.map(cartItem => (
                 <CheckoutItem key={cartItem.id} item={cartItem} />
             ))}
-            <span className="total">Total: ${total.toFixed(2)}</span>
-        </div>
+            <Total>Total: ${total.toFixed(2)}</Total>
+        </CheckoutContainer>
     );
 };
 
