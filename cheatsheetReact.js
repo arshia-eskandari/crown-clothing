@@ -115,3 +115,9 @@ setFormFields({ ...formFields, [nameOfField]: value });
 // the components that are listening to a useContext rerender when
 // the value in the useContext changes even if they do not use the
 // the value.
+
+// reducers have types and payloads which are our actions
+// IMP reducers eliminate the use of state in conjuction with createContext
+// reducers work well when the value of a couple of variables depend on another
+
+// selectors update whenever the state object changes
