@@ -7,17 +7,19 @@ import { rootReducer } from './root-reducer';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { loggerMiddleware } from './middleware/logger';
+import thunk from 'redux-thunk';
 
 const persistConfig = {
     key: 'root',
     storage,
-    blacklist: ['user'],
+    whitelist: ['cart'],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 const middleWares = [
     process.env.NOCE_ENV === 'development' && loggerMiddleware,
+    thunk,
 ].filter(Boolean);
 
 const composeEnhancer =
