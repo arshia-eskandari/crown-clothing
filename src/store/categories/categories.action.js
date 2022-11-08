@@ -1,6 +1,5 @@
 import { CATEGORIES_ACTION_TYPES } from './categories.types';
 import { createAction } from '../../utils/reducer/reducer.utils';
-import { getCategoriesAndDocuments } from '../../utils/firebase/firbase.utils';
 
 export const setCategories = categoriesArr =>
     createAction(CATEGORIES_ACTION_TYPES.SET_CATEGORIES, categoriesArr);
@@ -16,13 +15,3 @@ export const fecthCategoriesSuccess = categoriesArr =>
 
 export const fecthCategoriesFailed = error =>
     createAction(CATEGORIES_ACTION_TYPES.FETCH_CATEGORIES_FAILED, error);
-
-export const fetchCatgeoriesAsync = () => async dispatch => {
-    dispatch(fecthCategoriesStart());
-    try {
-        const categoriesArr = await getCategoriesAndDocuments();
-        dispatch(fecthCategoriesSuccess(categoriesArr));
-    } catch (err) {
-        dispatch(fecthCategoriesFailed(err));
-    }
-};
