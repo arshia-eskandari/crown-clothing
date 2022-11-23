@@ -10,6 +10,7 @@ import {
     selectCartTotal,
 } from '../../store/cart/cart.selector';
 import { useSelector } from 'react-redux';
+import PaymentForm from '../../components/payment-form/payment-form.component';
 
 const CheckOut = () => {
     const cartItems = useSelector(selectCartItems);
@@ -39,6 +40,7 @@ const CheckOut = () => {
                 <CheckoutItem key={cartItem.id} item={cartItem} />
             ))}
             <Total>Total: ${total.toFixed(2)}</Total>
+            <PaymentForm />
         </CheckoutContainer>
     );
 };

@@ -1,9 +1,5 @@
 import { useState } from 'react';
 import { DEFAULT_SIGNUP_FORM_FIELDS } from '../../config';
-import {
-    createAuthUserWithEmailAndPassword,
-    createUserDocumentFromAuth,
-} from '../../utils/firebase/firbase.utils';
 import FormInput from '../form-input/form-input.component';
 import { SignUpContainer } from './sign-up-form.styles';
 import Button from '../button/button.component';
@@ -26,7 +22,7 @@ const SignUpForm = () => {
         }
 
         try {
-            dispatch(signUpStart(email, password, displayName))
+            dispatch(signUpStart(email, password, displayName));
             resetFormFields();
         } catch (err) {
             if (err.code === 'auth/email-already-in-use') {

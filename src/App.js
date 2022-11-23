@@ -4,11 +4,6 @@ import Navigation from './routes/navigation/navigation.component';
 import Shop from './routes/shop/shop.component';
 import Athentication from './components/authentication/authentication.component';
 import CheckOut from './routes/checkout/checkout.component';
-import {
-    createUserDocumentFromAuth,
-    getCurrentUser,
-    onAuthStateChangedListener,
-} from './utils/firebase/firbase.utils';
 import { useEffect } from 'react';
 import { checkUserSession } from './store/user/user.action';
 import { useDispatch } from 'react-redux';

@@ -19,7 +19,7 @@ export const userReducer = (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 currentUser: null,
-            }
+            };
         case USER_ACTIONS_TYPE.SIGN_OUT_FAILED:
         case USER_ACTIONS_TYPE.SIGN_IN_FAILED:
         case USER_ACTIONS_TYPE.SIGN_UP_FAILED:

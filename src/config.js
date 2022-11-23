@@ -46,3 +46,19 @@ export const DEFAULT_SIGNIN_FORM_FIELDS = {
     password: '',
 };
 export const ONE = 1;
+
+export const DEFAULT_SHIPPING_ADDRESS_FORM_FIELDS = {
+    shipLine1: '',
+    shipLine2: '',
+    shipCity: '',
+    shipPostalCode: '',
+    shipState: '',
+};
+
+export const DEFAULT_BILLING_ADDRESS_FORM_FIELDS = {
+    billLine1: '',
+    billLine2: '',
+    billCity: '',
+    billPostalCode: '',
+    billState: '',
+};
