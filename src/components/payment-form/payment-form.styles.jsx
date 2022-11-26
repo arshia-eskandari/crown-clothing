@@ -1,6 +1,5 @@
 import { CardElement } from '@stripe/react-stripe-js';
 import styled from 'styled-components';
-import FormInput from '../form-input/form-input.component';
 
 export const PaymentFormContainer = styled.div`
     min-height: 800px;

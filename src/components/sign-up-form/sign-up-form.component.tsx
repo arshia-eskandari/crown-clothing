@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, ChangeEvent, FormEvent } from 'react';
 import { DEFAULT_SIGNUP_FORM_FIELDS } from '../../config';
 import FormInput from '../form-input/form-input.component';
 import { SignUpContainer } from './sign-up-form.styles';
@@ -14,26 +14,18 @@ const SignUpForm = () => {
     const resetFormFields = () => {
         setFormFields(DEFAULT_SIGNUP_FORM_FIELDS);
     };
-    const handleSubmit = async event => {
+    const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         if (password !== confirmPassword) {
             alert('passwords do not match.');
             return;
         }
 
-        try {
-            dispatch(signUpStart(email, password, displayName));
-            resetFormFields();
-        } catch (err) {
-            if (err.code === 'auth/email-already-in-use') {
-                alert('Cannot create user, email already in use.');
-                return;
-            }
-            console.log(err.message);
-        }
+        dispatch(signUpStart(email, password, displayName));
+        resetFormFields();
     };
 
-    const handleChange = event => {
+    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target;
         setFormFields({ ...formFields, [name]: value });
     };

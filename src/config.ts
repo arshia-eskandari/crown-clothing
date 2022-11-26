@@ -30,35 +30,33 @@ export const CATEGORIES = [
         route: 'shop/mens',
     },
 ];
-export const DEFAULT_SIGNUP_FORM_FIELDS = {
-    displayName: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
-};
-export const BUTTON_TYPE_CLASSES = {
-    base: 'base',
-    google: 'google-sign-in',
-    inverted: 'inverted',
-};
-export const DEFAULT_SIGNIN_FORM_FIELDS = {
-    email: '',
-    password: '',
-};
+export enum DEFAULT_SIGNUP_FORM_FIELDS {
+    displayName = '',
+    email = '',
+    password = '',
+    confirmPassword = '',
+}
+export enum BUTTON_TYPE_CLASSES {
+    base = 'base',
+    google = 'google-sign-in',
+    inverted = 'inverted',
+}
+export enum DEFAULT_SIGNIN_FORM_FIELDS {
+    email = '',
+    password = '',
+}
 export const ONE = 1;
-
-export const DEFAULT_SHIPPING_ADDRESS_FORM_FIELDS = {
-    shipLine1: '',
-    shipLine2: '',
-    shipCity: '',
-    shipPostalCode: '',
-    shipState: '',
-};
-
-export const DEFAULT_BILLING_ADDRESS_FORM_FIELDS = {
-    billLine1: '',
-    billLine2: '',
-    billCity: '',
-    billPostalCode: '',
-    billState: '',
-};
+export enum DEFAULT_SHIPPING_ADDRESS_FORM_FIELDS {
+    shipLine1 = '',
+    shipLine2 = '',
+    shipCity = '',
+    shipPostalCode = '',
+    shipState = '',
+}
+export enum DEFAULT_BILLING_ADDRESS_FORM_FIELDS {
+    billLine1 = '',
+    billLine2 = '',
+    billCity = '',
+    billPostalCode = '',
+    billState = '',
+}

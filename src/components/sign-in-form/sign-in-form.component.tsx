@@ -1,8 +1,8 @@
-import { useState } from 'react';
+import { useState, FormEvent, ChangeEvent } from 'react';
 import { BUTTON_TYPE_CLASSES, DEFAULT_SIGNIN_FORM_FIELDS } from '../../config';
 import { SignInContainer, ButtonsContainer } from './sign-in-form.styles';
 import FormInput from '../form-input/form-input.component';
-import './sign-in-form.styles.jsx';
+import './sign-in-form.styles';
 import Button from '../button/button.component';
 import { useDispatch } from 'react-redux';
 import {
@@ -19,26 +19,14 @@ const SignInForm = () => {
         setFormFields(DEFAULT_SIGNIN_FORM_FIELDS);
     };
 
-    const handleSubmit = async event => {
+    const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 
-        try {
-            dispatch(emailSignInStart(email, password))
-            resetFormFields();
-        } catch (err) {
-            if (err.code === 'auth/wrong-password') {
-                alert('Incorrect password for this email');
-                return;
-            }
-            if (err.code === 'auth/user-not-found') {
-                alert('No user is associated with this email');
-                return;
-            }
-            alert('Something went wrong. Please try again later.');
-        }
+        dispatch(emailSignInStart(email, password));
+        resetFormFields();
     };
 
-    const handleChange = event => {
+    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target;
         setFormFields({ ...formFields, [name]: value });
     };

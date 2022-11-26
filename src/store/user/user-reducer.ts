@@ -1,3 +1,4 @@
+import { AuthError, AuthErrorCodes } from 'firebase/auth';
 import { AnyAction } from 'redux';
 import { UserData } from '../../utils/firebase/firbase.utils';
 import {
@@ -43,6 +44,26 @@ export const userReducer = (
         signInFailed.match(action) ||
         signUpFailed.match(action)
     ) {
+        const error = action.payload;
+        if ((error as AuthError)?.code) {
+            if ((error as AuthError).code === AuthErrorCodes.WEAK_PASSWORD) {
+                alert('Weak Password');
+            } else if (
+                (error as AuthError).code === AuthErrorCodes.EMAIL_EXISTS
+            ) {
+                alert('Cannot create user, email already in use.');
+            } else if (
+                (error as AuthError).code === AuthErrorCodes.INVALID_PASSWORD
+            ) {
+                alert('Incorrect password for this email');
+            } else if (
+                (error as AuthError).code === AuthErrorCodes.USER_DELETED
+            ) {
+                alert('No user is associated with this email');
+            } else {
+                alert('Something went wrong. Please try again later.');
+            }
+        }
         return {
             ...state,
             error: action.payload,
