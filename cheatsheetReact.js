@@ -121,3 +121,6 @@ setFormFields({ ...formFields, [nameOfField]: value });
 // reducers work well when the value of a couple of variables depend on another
 
 // selectors update whenever the state object changes
+
+// useMemo memoizes the returned value of a function
+// useCallback memoizes the function defn itself
