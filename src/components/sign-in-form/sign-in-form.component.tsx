@@ -4,16 +4,21 @@ import { SignInContainer, ButtonsContainer } from './sign-in-form.styles';
 import FormInput from '../form-input/form-input.component';
 import './sign-in-form.styles';
 import Button from '../button/button.component';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {
     googleSignInStart,
     emailSignInStart,
 } from '../../store/user/user.action';
+import { selectCurrentUser } from '../../store/user/user.selector';
+import { useNavigate } from 'react-router-dom';
 
 const SignInForm = () => {
+    const currentUser = useSelector(selectCurrentUser);
     const dispatch = useDispatch();
     const [formFields, setFormFields] = useState(DEFAULT_SIGNIN_FORM_FIELDS);
     const { email, password } = formFields;
+    const navigate = useNavigate();
+    if (currentUser) navigate('/shop');
 
     const resetFormFields = () => {
         setFormFields(DEFAULT_SIGNIN_FORM_FIELDS);

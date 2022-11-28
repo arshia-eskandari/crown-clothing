@@ -15,13 +15,19 @@ export const LogoContainer = styled(Link)`
     padding: 25px;
 `;
 
+export const Username = styled.p`
+    margin: auto;
+    margin-top: 0;
+    text-align: center;
+    width: 50px;
+`;
+
 export const NavLinks = styled.div`
     width: 50%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    cursor: pointer;
 `;
 
 export const NavLink = styled(Link)`
