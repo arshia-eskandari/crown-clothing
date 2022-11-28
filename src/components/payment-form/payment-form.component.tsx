@@ -1,6 +1,6 @@
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
-import { Fragment, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { Fragment, useState, FormEvent, ChangeEvent } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import {
     BUTTON_TYPE_CLASSES,
     DEFAULT_SHIPPING_ADDRESS_FORM_FIELDS,
@@ -16,6 +16,12 @@ import {
     StyledCardElement,
     StyledLabel,
 } from './payment-form.styles';
+import { StripeCardElement } from '@stripe/stripe-js';
+import { clearCart } from '../../store/cart/cart.actions';
+
+const isValidCardElement = (
+    card: StripeCardElement | null
+): card is StripeCardElement => card !== null;
 
 const PaymentForm = () => {
     const stripe = useStripe();
@@ -34,6 +40,11 @@ const PaymentForm = () => {
     const { billLine1, billLine2, billCity, billPostalCode, billState } =
         billingAddress;
     const [checked, setChecked] = useState(true);
+    const dispatch = useDispatch();
+
+    const clearCartAfterPayment = () => {
+        dispatch(clearCart());
+    };
 
     const handleCheckedChange = () => {
         setChecked(!checked);
@@ -45,17 +56,17 @@ const PaymentForm = () => {
         setShippingAddress(DEFAULT_SHIPPING_ADDRESS_FORM_FIELDS);
     };
 
-    const handleBillingChange = event => {
+    const handleBillingChange = (event: ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target;
         setBillingAddress({ ...billingAddress, [name]: value });
     };
 
-    const handleShippingChange = event => {
+    const handleShippingChange = (event: ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target;
         setShippingAddress({ ...shippingAddress, [name]: value });
     };
 
-    const paymentHandler = async e => {
+    const paymentHandler = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         if (!stripe || !elements) return;
@@ -99,9 +110,13 @@ const PaymentForm = () => {
             paymentIntent: { client_secret },
         } = response;
 
+        const cardDetails = elements.getElement(CardElement);
+
+        if (!isValidCardElement(cardDetails)) return;
+
         const paymentResult = await stripe.confirmCardPayment(client_secret, {
             payment_method: {
-                card: elements.getElement(CardElement),
+                card: cardDetails,
                 billing_details: {
                     name: user ? user.displayName : 'Guest',
                     address: {
@@ -129,6 +144,8 @@ const PaymentForm = () => {
 
         setIsProcessingPayment(false);
         resetFormFields();
+        cardDetails.clear();
+        clearCartAfterPayment();
 
         if (paymentResult.error) {
             alert(paymentResult.error.message);

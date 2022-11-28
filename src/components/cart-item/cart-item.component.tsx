@@ -1,11 +1,12 @@
-import {
-    CartItemContainer,
-    IMG,
-    ItemDetails,
-    Name,
-} from './cart-item.styles.jsx';
+import { CartItemContainer, IMG, ItemDetails, Name } from './cart-item.styles';
+import { CartItem as TCartItem } from '../../store/cart/cart.types';
+import { FC, memo } from 'react';
 
-const CartItem = ({ cartItem }) => {
+type CartItemProps = {
+    cartItem: TCartItem;
+};
+
+const CartItem: FC<CartItemProps> = memo(({ cartItem }) => {
     const { name, quantity, imageUrl, price } = cartItem;
 
     return (
@@ -19,6 +20,6 @@ const CartItem = ({ cartItem }) => {
             </ItemDetails>
         </CartItemContainer>
     );
-};
+});
 
 export default CartItem;

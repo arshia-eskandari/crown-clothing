@@ -4,8 +4,13 @@ import { ProductCartContainer, Footer, Name } from './product-card.styles';
 import { addItemToCart } from '../../store/cart/cart.actions';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectCartItems } from '../../store/cart/cart.selector';
+import { CategoryItem } from '../../store/categories/categories.types';
 
-const ProductCard = ({ product }) => {
+type ProductObj = {
+    product: CategoryItem;
+};
+
+const ProductCard = ({ product }: ProductObj) => {
     const dispatch = useDispatch();
     const cartItems = useSelector(selectCartItems);
     const { name, price, imageUrl } = product;

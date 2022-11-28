@@ -2,8 +2,8 @@ import {
     CartDropdownContainer,
     CartItems,
     EmptyMessage,
-} from './cart-dropdown.styles.jsx';
-import Button from '../button/button.component';
+    StyledButton
+} from './cart-dropdown.styles';
 import CartItem from '../cart-item/cart-item.component';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -28,7 +28,7 @@ const CartDropdown = () => {
                     <EmptyMessage>Your cart is empty</EmptyMessage>
                 )}
             </CartItems>
-            <Button onClick={goToCheckOutHandler}>Go To Checkout</Button>
+            <StyledButton onClick={goToCheckOutHandler}>Checkout</StyledButton>
         </CartDropdownContainer>
     );
 };

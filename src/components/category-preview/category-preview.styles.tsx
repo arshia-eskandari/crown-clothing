@@ -7,18 +7,20 @@ export const CategoryPreviewContainer = styled.div`
     margin-bottom: 30px;
 `;
 
+export const StyledLink = styled(Link)`
+    font-size: 28px;
+    cursor: pointer;
+`;
+
 export const Preview = styled.div`
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     column-gap: 20px;
 `;
 
+
+
 export const TitleH2 = styled.h2`
     margin: auto;
-
-    ${Link} {
-        font-size: 28px;
-        margin-bottom: 25px;
-        cursor: pointer;
-    }
+    margin-bottom: 25px;
 `;
