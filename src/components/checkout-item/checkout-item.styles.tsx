@@ -21,18 +21,46 @@ export const ImageContainer = styled.div`
 
 export const BaseSpan = styled.span`
     width: 23%;
+
+    @media screen and (max-width: 800px) {
+        font-size: 1.8vh;
+    }
+    @media screen and (max-width: 400px) {
+      font-size: 1.8vh;
+    }
 `;
 
 export const Quantity = styled(BaseSpan)`
     display: flex;
+
+    @media screen and (max-width: 800px) {
+        font-size: 1.8vh;
+    }
+    @media screen and (max-width: 400px) {
+      font-size: 1.8vh;
+    }
 `;
 
 export const Arrow = styled.div`
     cursor: pointer;
+
+    @media screen and (max-width: 800px) {
+        font-size: 1.8vh;
+    }
+    @media screen and (max-width: 400px) {
+      font-size: 1.8vh;
+    }
 `;
 
 export const Value = styled.span`
     margin: 0 10px;
+
+    @media screen and (max-width: 800px) {
+        font-size: 1.8vh;
+    }
+    @media screen and (max-width: 400px) {
+      font-size: 1.8vh;
+    }
 `;
 
 export const RemoveButton = styled.div`
