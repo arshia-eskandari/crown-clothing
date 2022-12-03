@@ -7,13 +7,13 @@ type CartItemProps = {
 };
 
 const CartItem: FC<CartItemProps> = memo(({ cartItem }) => {
-    const { name, quantity, imageUrl, price } = cartItem;
+    const { name, quantity, imageUrl, price, size } = cartItem;
 
     return (
         <CartItemContainer>
             <IMG src={imageUrl} alt={name} />
             <ItemDetails>
-                <Name>{name}</Name>
+                <Name>{`${name} (${size})`}</Name>
                 <span>
                     {quantity} x ${price}
                 </span>

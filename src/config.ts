@@ -60,3 +60,6 @@ export enum DEFAULT_BILLING_ADDRESS_FORM_FIELDS {
     billPostalCode = '',
     billState = '',
 }
+export const LARGE = 'L';
+export const MEDIUM = 'M';
+export const SMALL = 'S';

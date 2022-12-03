@@ -205,7 +205,7 @@ const PaymentForm = () => {
                         checked={checked}
                         onChange={handleCheckedChange}
                     />
-                    The shipping address is the same as the billing address?
+                    The shipping address is the same as the billing address
                 </StyledLabel>
                 {!checked && (
                     <Fragment>

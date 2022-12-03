@@ -1,4 +1,14 @@
 import styled from 'styled-components';
+import Button from '../button/button.component';
+
+export const SizeBtn = styled(Button)`
+    width: 10px;
+    min-width: 40px;
+`;
+
+export const SizeBtnContainer = styled.div`
+    display: flex;
+`;
 
 export const ProductCartContainer = styled.div`
     width: 100%;
@@ -20,18 +30,44 @@ export const ProductCartContainer = styled.div`
         top: 255px;
         display: none;
     }
+    ${SizeBtnContainer} {
+        width: 80%;
+        opacity: 0.7;
+        position: absolute;
+        top: 20px;
+        display: none;
+
+        ${SizeBtn} {
+            opacity: 0.7;
+            position: relative;
+            top: 0;
+        }
+    }
     &:hover {
         img {
             opacity: 0.8;
         }
-        button {
-            opacity: 0.85;
+        button,
+        ${SizeBtnContainer} {
+            opacity: 0.9;
             display: flex;
         }
     }
 
     @media screen and (max-width: 800px) {
         width: 40vw;
+        ${SizeBtnContainer}, ${SizeBtn} {
+            opacity: 0.9;
+            display: block;
+        }
+        &:hover {
+            ${SizeBtnContainer} {
+                display: block;
+            }
+        }
+        ${SizeBtn} {
+            max-width: 50px;
+        }
         button {
             display: block;
             opacity: 0.9;
@@ -41,7 +77,8 @@ export const ProductCartContainer = styled.div`
                 img {
                     opacity: unset;
                 }
-                button {
+                button,
+                ${SizeBtnContainer} {
                     opacity: unset;
                 }
             }

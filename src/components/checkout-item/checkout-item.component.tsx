@@ -22,7 +22,7 @@ export type CheckoutItemProps = {
 
 const CheckoutItem: FC<CheckoutItemProps> = memo(({ item }) => {
     const dispatch = useDispatch();
-    const { name, imageUrl, price, quantity } = item;
+    const { name, imageUrl, price, quantity, size } = item;
     const cartItems = useSelector(selectCartItems);
 
     const clearHandler = () =>
@@ -36,7 +36,7 @@ const CheckoutItem: FC<CheckoutItemProps> = memo(({ item }) => {
             <ImageContainer>
                 <img src={imageUrl} alt={name} />
             </ImageContainer>
-            <BaseSpan>{name}</BaseSpan>
+            <BaseSpan>{`${name} (${size})`}</BaseSpan>
             <Quantity>
                 <Arrow onClick={removeItemHandler}>&#10094;</Arrow>
                 <Value>{quantity}</Value>

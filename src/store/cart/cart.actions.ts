@@ -8,11 +8,13 @@ import { CART_ACTION_TYPES, CartItem } from './cart.types';
 import { CategoryItem } from '../categories/categories.types';
 
 const addCartItem = (cartItems: CartItem[], product: CategoryItem) => {
-    const found = cartItems.find(item => product.id === item.id);
+    const found = cartItems.find(
+        item => product.id === item.id && product?.size === item?.size
+    );
 
     if (found) {
         return cartItems.map(item =>
-            product.id === item.id
+            product.id === item.id && product?.size === item?.size
                 ? { ...item, quantity: item.quantity + 1 }
                 : item
         );
@@ -32,7 +34,7 @@ const removeItems = (
 
     const newCartItems: CartItem[] = [];
     cartItems.map(item =>
-        product.id === item.id
+        product.id === item.id && product?.size === item?.size
             ? item.quantity > 1 &&
               isRemovingOne &&
               newCartItems.push({ ...item, quantity: item.quantity - 1 })
@@ -62,7 +64,7 @@ export const setClearCart = withMatcher(
         createAction(CART_ACTION_TYPES.SET_CLEAR_CART, cartItems)
 );
 
-export const clearCart = () => setClearCart([])
+export const clearCart = () => setClearCart([]);
 
 export const setIsCartOpen = withMatcher(
     (bool: boolean): SetIsCartOpen =>
@@ -73,7 +75,6 @@ export const setCartItems = withMatcher(
     (cartItems: CartItem[]): SetCartItems =>
         createAction(CART_ACTION_TYPES.SET_CART_ITEMS, cartItems)
 );
-
 
 export const addItemToCart = (
     cartItems: CartItem[],
