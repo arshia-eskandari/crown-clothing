@@ -11,13 +11,16 @@ import {
 } from '../../store/cart/cart.selector';
 import { useSelector } from 'react-redux';
 import PaymentForm from '../../components/payment-form/payment-form.component';
+import { Fragment } from 'react';
+import Footer from '../footer/footer.component';
 
 const CheckOut = () => {
     const cartItems = useSelector(selectCartItems);
     const total = useSelector(selectCartTotal);
 
     return (
-        <CheckoutContainer>
+        <Fragment>
+            <CheckoutContainer>
             <h1>CHECKOUT</h1>
             <CheckoutHeader>
                 <HeaderBlock>
@@ -42,6 +45,8 @@ const CheckOut = () => {
             <Total>Total: ${total.toFixed(2)}</Total>
             <PaymentForm />
         </CheckoutContainer>
+        <Footer />
+        </Fragment>
     );
 };
 

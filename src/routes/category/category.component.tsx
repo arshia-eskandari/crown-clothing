@@ -7,6 +7,7 @@ import {
     selectCategoriesIsLoading,
     selectCategoriesMap,
 } from '../../store/categories/categories.selector';
+import Footer from '../footer/footer.component';
 import { CategoryContainer, Title } from './category.styles';
 
 type categoryRouteParams = {
@@ -38,6 +39,7 @@ const Category = () => {
                         ))}
                 </CategoryContainer>
             )}
+            <Footer />
         </Fragment>
     );
 };
