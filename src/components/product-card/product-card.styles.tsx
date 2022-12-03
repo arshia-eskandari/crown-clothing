@@ -55,6 +55,14 @@ export const ProductCartContainer = styled.div`
     }
 
     @media screen and (max-width: 800px) {
+        img {
+            opacity: 1;
+        }
+        &:hover {
+            img {
+                opacity: 1;
+            }
+        }
         width: 40vw;
         ${SizeBtnContainer}, ${SizeBtn} {
             opacity: 0.9;

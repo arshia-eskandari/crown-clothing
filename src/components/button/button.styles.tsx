@@ -24,6 +24,14 @@ export const BaseButton = styled.button`
         background-color: white;
         color: black;
     }
+
+    @media screen and (max-width: 800px) {
+        &:hover {
+            background-color: black;
+            color: white;
+        }
+        font-size: 13px;
+    }
 `;
 
 export const GoogleSignInButton = styled(BaseButton)`
@@ -44,6 +52,13 @@ export const InvertedButton = styled(BaseButton)`
     &:hover {
         background-color: black;
         color: white;
+    }
+
+    @media screen and (max-width: 800px) {
+        &:hover {
+            background-color: white;
+            color: black;
+        }
     }
 `;
 

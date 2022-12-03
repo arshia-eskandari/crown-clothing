@@ -41,7 +41,8 @@ export const Body = styled.div`
     }
 
     @media screen and (max-width: 800px) {
-        width: 350px;
+        width: 340px;
+        height: 375px
     }
 `;
 

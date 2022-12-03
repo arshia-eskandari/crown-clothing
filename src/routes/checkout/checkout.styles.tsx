@@ -24,7 +24,7 @@ export const CheckoutHeader = styled.div`
 
     @media screen and (max-width: 800px) {
         font-size: 1.8vh;
-        justify-content: start;
+        justify-content: space-between;
     }
     @media screen and (max-width: 400px) {
         font-size: 1.8vh;
@@ -40,14 +40,13 @@ export const HeaderBlock = styled.div`
 
     @media screen and (max-width: 800px) {
         width: 15%;
-        margin-left: 20px;
 
         &:last-child {
             width: 10%;
         }
 
         &:first-child {
-          margin-left: -3px;
+            margin-left: -3px;
         }
     }
     @media screen and (max-width: 400px) {
