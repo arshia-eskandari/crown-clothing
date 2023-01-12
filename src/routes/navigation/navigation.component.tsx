@@ -35,7 +35,7 @@ const Navigation = () => {
                     <CrownLogo className="logo" />
                     <Username>
                         {currentUser
-                            ? currentUser.displayName.split(' ')[0]
+                            ? currentUser.displayName?.split(' ')[0]
                             : ''}
                     </Username>
                 </LogoContainer>
